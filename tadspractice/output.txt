@@ -1,0 +1,5 @@
+Script Runned!
+[32mLinkedQueue test passed[0m
+[32mBST test passed[0m
+[32mCloseHash test passed[0m
+[32mOpenHash test passed[0m
