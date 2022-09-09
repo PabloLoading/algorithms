@@ -38,12 +38,12 @@ public class CloseHash<K,T> implements Hash<K,T> {
         Pair p = new Pair(key);
         int i =0;
         while(true){
-            int pos=(h.hash(key)+i*h2.hash(key))%table.length;
+            int pos=Math.abs((h.hash(key)+i*h2.hash(key)))%table.length;
             
             if(table[pos]==null) return null;
 
             Pair arrPair = (Pair) table[pos];
-            if((Pair) table[pos]!=null && p.equals((Pair) table[pos])) return arrPair.value;
+            if(arrPair!=null && p.equals(arrPair)) return arrPair.value;
             //cycle complete
             if(i!=0 && pos== h.hash(key)% table.length) return null;
             i++;
@@ -88,25 +88,22 @@ public class CloseHash<K,T> implements Hash<K,T> {
                 i++;
             }
         }
-        else{
-            Pair p = new Pair(key,data);
-            int i =0;
-            while(true){
-                int pos=Math.abs((h.hash(key)+i*h2.hash(key)))%table.length;
-                
-                if(table[pos]==null){
-                    table[pos]=p;
-                    elements++;
-                    return;
-                }
-                //cycle complete
-                if(i!=0 && pos== h.hash(key)% table.length){
-                    return;
-                }
-                i++;
+
+        Pair p = new Pair(key,data);
+        int i =0;
+        while(true){
+            int pos=Math.abs((h.hash(key)+i*h2.hash(key)))%table.length;
+            
+            if(table[pos]==null){
+                table[pos]=p;
+                elements++;
+                return;
             }
+            //cycle complete
+            if(i!=0 && pos== h.hash(key)% table.length) return;
+            
+            i++;
         }
-        
     }
 
 
