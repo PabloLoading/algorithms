@@ -1,7 +1,15 @@
 package tads.PrioQueue;
 
-public interface PrioQueue {
-    public void push(int data);
-    public int pop();
+public interface PrioQueue <E extends Comparable<E>>  {
+    public void push(E elem);
+    public E pop();
+    public E top();
     public boolean isEmpty();
+    public boolean isFull();
+    //Extended methods
+    public void remove(E elem);
+    public void changePrio(E elem,E elemNew);
+    public void heapify(E[] arr);
+    public int size();
+    public String toString();
 }

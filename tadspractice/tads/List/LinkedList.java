@@ -85,7 +85,7 @@ public class LinkedList<T> implements List<T> {
     }
 
     @Override
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         return new LinkedListIterator(head);
     }
     class LinkedListIterator implements Iterator<T>{
@@ -102,7 +102,7 @@ public class LinkedList<T> implements List<T> {
 
         @Override
         public T next() {
-            T data = curr.data;
+            T data = curr.data  ;
             curr=curr.next;
             return data;
         }

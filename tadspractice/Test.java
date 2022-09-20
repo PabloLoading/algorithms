@@ -1,7 +1,7 @@
 
 import tads.BST.*;
 import tads.DuoPrioQueue.*;
-import tads.ItemPrioQueue.*;
+import tads.PrioQueue.*;
 import tads.Table.*;
 import tads.Queue.*;
 import hashFunctions.*;
@@ -130,7 +130,7 @@ public class Test {
         }
     */
     public static boolean HeapTest(){
-        ItemPrioQueue<Integer> pq = new ItemHeap<Integer>(2,false);
+        PrioQueue<Integer> pq = new HeapPrioQueue<Integer>(2,false);
 
         pq.push(2);
         pq.push(1);
@@ -157,7 +157,7 @@ public class Test {
 
 
         //TEST HEAPIFY
-        ItemPrioQueue<Integer> pq2 = new ItemHeap<Integer>(2,false);
+        PrioQueue<Integer> pq2 = new HeapPrioQueue<Integer>(2,false);
         Integer[] arrToHeap = {2,5,2,5,7,3,90,23,0,6,45};
         pq2.heapify(arrToHeap);
         

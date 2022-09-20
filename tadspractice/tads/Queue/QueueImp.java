@@ -1,5 +1,3 @@
-
-
 package tads.Queue;
 
 import java.util.Iterator;
@@ -70,9 +68,25 @@ public class QueueImp<T> implements Queue<T> {
 
     @Override
     public Iterator<T> iterator() {
-        // TODO Auto-generated method stub
-        return null;
+        return new QueueIterator(front);
     }
-    
-    
+    public class QueueIterator implements Iterator<T>{
+        Node head;
+
+        public QueueIterator(Node n){
+            head = n;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return head!=null;
+        }
+
+        @Override
+        public T next() {
+            T value = head.data;
+            head=head.next;
+            return value;
+        }
+    }
 }

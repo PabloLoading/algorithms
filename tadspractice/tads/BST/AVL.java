@@ -205,7 +205,7 @@ public class AVL<T extends Comparable<T>> implements BST<T> {
         return y;
     }
     
-    public Iterator iterator(){
+    public Iterator<T> iterator(){
         Queue<T> q = new QueueImp<T>();
         loadInOrder(root,q);
         return q.iterator();
