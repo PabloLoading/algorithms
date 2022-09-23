@@ -34,6 +34,7 @@ public class MatrixGraph implements Graph{
   }
 
   @Override
+
   public void addWeightedEdge(int v, int w, int weight) {
     if(!posValid(v) || !posValid(w)) return;
     mat[v][w]=weight;
@@ -46,7 +47,7 @@ public class MatrixGraph implements Graph{
 
   @Override
   public int edgeCount(int v) {
-    if(!posValid(v)) return 0;
+    if(!posValid(v)) return -1;
     int vEdges =0;
     for(int i =0;i<mat.length;i++) 
       if(mat[v][i]>0)vEdges++;
@@ -85,6 +86,11 @@ public class MatrixGraph implements Graph{
         return new MatrixGraphIterator(mat[v], edgeCount(v));
       }
     };
+  }
+
+  @Override
+  public int[][] getAdyMatrix() {
+    return null;
   }
 }
   

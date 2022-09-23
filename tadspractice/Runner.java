@@ -5,7 +5,10 @@ import tads.Graph.*;
 
 public class Runner {
     public static void main(String[] args) {
-        runEj1();
+        //runEj1();
+        System.out.println("Compiled!!");
+        Test t = new Test();
+        t.doTest();
     }
 
 

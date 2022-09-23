@@ -29,7 +29,7 @@ public class CloseHash<K,T> implements Table<K,T> {
         public boolean equals(Object obj){
             K otherKey=((Pair) obj).key;
             boolean otherIsDeleted=((Pair) obj).isDeleted;
-            return  this.key.equals(otherKey) && !(otherIsDeleted|| this.isDeleted);
+            return  this.key.equals(otherKey) && !(otherIsDeleted || this.isDeleted);
         }
     }
 
@@ -40,7 +40,6 @@ public class CloseHash<K,T> implements Table<K,T> {
         while(true){
             int pos=Math.abs((h.hash(key)+i*h2.hash(key)))%table.length;
             
-            if(table[pos]==null) return null;
 
             Pair arrPair = (Pair) table[pos];
             if(arrPair!=null && p.equals(arrPair)) return arrPair.value;
@@ -79,7 +78,7 @@ public class CloseHash<K,T> implements Table<K,T> {
             int i =0;
             while(true){
                 int pos=Math.abs((h.hash(key)+i*h2.hash(key)))%table.length;
-                if(table[pos]==null)return;
+                if(table[pos]==null)return;//esto cuando pasa
                 Pair arrPair = (Pair) table[pos];
                 if(p.equals(arrPair)){
                     arrPair.value=data;

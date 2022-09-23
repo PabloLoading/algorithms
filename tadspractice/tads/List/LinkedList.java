@@ -34,8 +34,6 @@ public class LinkedList<T> implements List<T> {
         return elements==0;
     }
 
-    
-
     @Override
     public void add(T data) {
         Node newNode= new Node(data);
@@ -53,12 +51,12 @@ public class LinkedList<T> implements List<T> {
     @Override
     public void remove(T data) {
         if(head!=null){
-            if(head.data==data && head.data==tail.data){
+            if(head.data==data && elements==1){
                 head=null;
                 tail=null;
                 elements--;
             }
-            else if(true){
+            else{
                 this.head=remove(head,data);
                 tail=head;
                 while(tail.next!=null){
@@ -69,15 +67,22 @@ public class LinkedList<T> implements List<T> {
         }
     }
 
-    /*
-     * PRIVATE FUNCTIONS:
-     */
+    @Override
+    public boolean contains(T data) {
+        Node i = head;
+        while(i!=null){
+            if (i.data == data) {
+                return true;
+            }
+            i = head.next;
+        }
+        return false;
+    }
+
+    /* * PRIVATE FUNCTIONS: * */
     private Node remove(Node root,T data){
         if(root==null) return null;
-
-        if(root.data==data){
-            return root.next;
-        }
+        if(root.data==data) return root.next;
         else{
             root.next=remove(root.next,data);
             return root;
@@ -107,5 +112,22 @@ public class LinkedList<T> implements List<T> {
             return data;
         }
     }
+    @Override
+    public T first() {
+        return head.data;
+    }
 
+    @Override
+    public void addFirst(T data) {
+        Node n = new Node(data);
+        if (elements==0) {
+        head = n;
+        tail = n;    
+        }
+        else{
+            n.next = head;
+            head = n;
+        }
+        elements++;
+    }
 }
