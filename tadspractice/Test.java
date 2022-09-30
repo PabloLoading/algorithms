@@ -1,10 +1,12 @@
 
 import tads.BST.*;
 import tads.DuoPrioQueue.*;
+import tads.List.LinkedList;
 import tads.PrioQueue.*;
 import tads.Table.*;
 import tads.Queue.*;
 import hashFunctions.*;
+import tads.List.*;
 
 
 public class Test {
@@ -293,6 +295,23 @@ public class Test {
         return t1 && t2 && t3 && t4 && t5;
      
     }
+    
+    public static boolean LinkedListTest() {
+        LinkedList<Integer> l = new LinkedList<>();
+        l.add(2);
+        l.add(3);
+        l.remove(4);
+
+        boolean b1 = !l.isEmpty();
+        boolean b2 = l.contains(2);
+        l.remove(2);
+        boolean b3 = !l.contains(2);
+
+
+        return b1 && b2 && b3;
+    }
+
+    
 
     public void doTest(){
         addTest("LinkedQueue",LinkedQueueTest());
@@ -301,6 +320,7 @@ public class Test {
         addTest("OpenHash", OpenHashTest());
         addTest("DuoHeap", DuoHeapTest());
         addTest("Heap", HeapTest());
+        addTest("LinkedList", LinkedListTest());
         showTests();
     }
 

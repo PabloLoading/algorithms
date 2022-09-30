@@ -1,10 +1,9 @@
+
 import tads.DuoPrioQueue.*;
 import tads.Graph.*;
 
-import java.net.SocketTimeoutException;
 import java.util.Scanner;
 
-// NO COPILA ACA, PARA PROBARLO HAY QUE USARLO EN EL ROOT (mismo nivel que Runner)
 // No funciona bien, tiende a dar costos mayores
 
 public class dijkstra {

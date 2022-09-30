@@ -1,7 +1,6 @@
 package tads.PrioQueue;
 
 import java.util.Iterator;
-
 import tads.Queue.Queue;
 import tads.Queue.QueueImp;
 
