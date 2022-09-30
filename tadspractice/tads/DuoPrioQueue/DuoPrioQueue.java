@@ -4,6 +4,7 @@ public interface DuoPrioQueue<E,P extends Comparable<P>> {
     public void push(E elem,P prio);
     public E pop();
     public E top();
+    public P maxPrio();
     public boolean isEmpty();
     public boolean isFull();
     //Extended methods

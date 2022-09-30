@@ -16,4 +16,10 @@ public class Edge {
     Edge other = (Edge) o;
     return this.vDest==other.vDest;
   }
+  public int getDest(){
+    return vDest;
+  }
+  public int getWeight(){
+    return weight;
+  }
 }

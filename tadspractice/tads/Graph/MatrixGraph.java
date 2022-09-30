@@ -86,6 +86,17 @@ public class MatrixGraph implements Graph{
       }
     };
   }
+
+  @Override
+  public int[][] getAdyMatrix() {
+    int[][] adyMat = new int[mat.length][mat.length];
+    for (int i = 0; i < adyMat.length; i++) {
+      for (int j = 0; j < adyMat.length; j++) {
+        adyMat[i][j]=mat[i][j];
+      }
+    }
+    return adyMat;
+  }
 }
   
 

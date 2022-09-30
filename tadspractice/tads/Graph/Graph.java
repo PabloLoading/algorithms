@@ -11,4 +11,6 @@ public interface Graph{
   public boolean hasEdge(int v, int w);
   public int getWeight(int v, int w);
   public void removeEdge(int v, int w);
+
+  public int[][] getAdyMatrix();
 }

@@ -147,5 +147,9 @@ public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
             sink(i);
         }        
     }
+    @Override
+    public P maxPrio() {
+        return (P) ((Pair) arr[1]).prio;
+    }
     
 }
