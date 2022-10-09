@@ -1,10 +1,9 @@
+package scripts;
 
 import tads.DuoPrioQueue.*;
 import tads.Graph.*;
-
 import java.util.Scanner;
 
-// No funciona bien, tiende a dar costos mayores
 
 public class dijkstra {
     public static void main(String[] args) {
@@ -24,25 +23,27 @@ public class dijkstra {
 
     public static int dijsktra(Graph g,int vertix,int to){
         int vQuant=g.size();
-        boolean[] visited= initBool(vQuant,false);
-        int[] costs = initInt(vQuant, Integer.MAX_VALUE);
-        int[] previous = initInt(vQuant, -1);
-        DuoPrioQueue<Integer,Integer> q = new PairHeap<Integer,Integer>(vQuant);
+        boolean[] visited= initBool(vQuant+1,false);
+        int[] costs = initInt(vQuant+1, Integer.MAX_VALUE);
+        int[] previous = initInt(vQuant+1, -1);
+        DuoPrioQueue<Integer,Integer> q = new PairHeap<Integer,Integer>(vQuant,false);
         q.push(vertix,0);
         while(!q.isEmpty()){
             int vCost = q.maxPrio();
             int v = q.pop();
-            visited[v]=true;
-            for(Edge e : g.edges(v)){
-                int w =e.getDest();
-                int dist=e.getWeight();
-                int wCost = vCost+dist;
-                if(!visited[w] && wCost<costs[w]){
-                    costs[w]=wCost;
-                    previous[w]=v;
-                    q.push(w,wCost);
-                }     
+            if(!visited[v]){
+                visited[v]=true;
+                for(Edge e : g.edges(v)){
+                    int w =e.getDest();
+                    int wCost = vCost+e.getWeight();
+                    if(!visited[w] && wCost<costs[w]){
+                        costs[w]=wCost;
+                        previous[w]=v;
+                        q.push(w,wCost);
+                    }     
+                }
             }
+            
         }
         return costs[to];
     }

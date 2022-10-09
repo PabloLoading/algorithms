@@ -1,0 +1,1 @@
+Para que los scripts funcionen hay que moverlos al root, mismo nivel que Runner.

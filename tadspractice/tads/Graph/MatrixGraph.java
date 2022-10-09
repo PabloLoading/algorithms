@@ -10,6 +10,9 @@ public class MatrixGraph implements Graph{
   private boolean posValid(int pos1){
     return pos1>0 && pos1<mat.length;
   }
+  private boolean shorter(int v, int w,int weight){
+    return mat[v][w]<weight;
+  }
 
   public MatrixGraph(int elems,boolean dir){
     mat=new int[elems+1][elems+1];
@@ -37,6 +40,7 @@ public class MatrixGraph implements Graph{
 
   public void addWeightedEdge(int v, int w, int weight) {
     if(!posValid(v) || !posValid(w)) return;
+    if(!shorter(v, w, weight))return;
     mat[v][w]=weight;
     edges++;   
     if(!directed){
@@ -90,17 +94,14 @@ public class MatrixGraph implements Graph{
 
   @Override
   public int[][] getAdyMatrix() {
-<<<<<<< HEAD
     int[][] adyMat = new int[mat.length][mat.length];
     for (int i = 0; i < adyMat.length; i++) {
       for (int j = 0; j < adyMat.length; j++) {
-        adyMat[i][j]=mat[i][j];
+        if(mat[i][j]==0)adyMat[i][j]=-1;
+        else adyMat[i][j]=mat[i][j];
       }
     }
     return adyMat;
-=======
-    return null;
->>>>>>> ec2df1f16650da9833e26b79dca527adb095895b
   }
 }
   

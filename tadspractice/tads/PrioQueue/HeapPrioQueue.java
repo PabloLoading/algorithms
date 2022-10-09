@@ -1,18 +1,15 @@
 package tads.PrioQueue;
 
-import java.util.Iterator;
-import tads.Queue.Queue;
-import tads.Queue.QueueImp;
 
 public class HeapPrioQueue<E extends Comparable<E>> implements PrioQueue<E> {
     private Object[] arr;
     private int elements;
     private boolean maxHeap;
 
-    public HeapPrioQueue(int expectedSize,boolean minHeap){
+    public HeapPrioQueue(int expectedSize,boolean maxHeap){
         arr=new Object[expectedSize+1];
         elements=0;
-        maxHeap=!minHeap;
+        this.maxHeap=maxHeap;
 
     }
 
@@ -37,6 +34,7 @@ public class HeapPrioQueue<E extends Comparable<E>> implements PrioQueue<E> {
             siftUp(parentPos);
         }
     }
+    
     @Override
     public String toString(){
         String str="";
@@ -45,6 +43,7 @@ public class HeapPrioQueue<E extends Comparable<E>> implements PrioQueue<E> {
         }
         return str;
     }
+    
     private void sink(int pos){
         int priorerChildPos=pos*2;
         int rightPos=pos*2+1;
@@ -71,6 +70,7 @@ public class HeapPrioQueue<E extends Comparable<E>> implements PrioQueue<E> {
             sink(priorerChildPos);
         }
     }
+    
     private void reSize(){
         Object[] newArr = new Object[elements*2];
         for (int i = 1; i <= elements; i++) {
@@ -78,7 +78,6 @@ public class HeapPrioQueue<E extends Comparable<E>> implements PrioQueue<E> {
         }
         arr=newArr;
     }
-
 
     @Override
     public void push(E elem) {

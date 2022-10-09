@@ -3,12 +3,13 @@ package tads.DuoPrioQueue;
 public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
     private Object[] arr;
     private int elements;
-
+    private boolean maxHeap;
     
 
-    public PairHeap(int expectedSize){
+    public PairHeap(int expectedSize,boolean maxHeap){
         arr=new Object[expectedSize+1];
         elements=0;
+        this.maxHeap=maxHeap;
     }
 
     class Pair{
@@ -25,11 +26,13 @@ public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
         }
 
     }
+    
     private void swap(int pos1, int pos2){
         Object aux=arr[pos1];
         arr[pos1]=arr[pos2];
         arr[pos2]=aux;
     }
+    
     @Override
     public String toString() {
         String str="";
@@ -45,11 +48,16 @@ public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
         int parentPos=pos/2;
         Pair child=(Pair) arr[pos];
         Pair parent= (Pair) arr[parentPos];
-        if(child.prio.compareTo(parent.prio)>0){
+        if(maxHeap && child.prio.compareTo(parent.prio)>0){
+            swap(pos,parentPos);
+            siftUp(parentPos);
+        }
+        else if(!maxHeap && child.prio.compareTo(parent.prio)<0){
             swap(pos,parentPos);
             siftUp(parentPos);
         }
     }
+    
     private void sink(int pos){
         int priorerChildPos=pos*2;
         int rightPos=pos*2+1;
@@ -58,17 +66,25 @@ public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
         if(rightPos<=elements){
             Pair lChild=(Pair) arr[priorerChildPos];
             Pair rChild=(Pair) arr[rightPos];
-            if(lChild.prio.compareTo(rChild.prio)<0){
+            if(maxHeap && lChild.prio.compareTo(rChild.prio)<0){
+                priorerChildPos=rightPos;
+            }
+            else if(!maxHeap && lChild.prio.compareTo(rChild.prio)>0){
                 priorerChildPos=rightPos;
             }
         }
         Pair prioChild=(Pair) arr[priorerChildPos];
         Pair parent= (Pair) arr[pos];
-        if(parent.prio.compareTo(prioChild.prio)<0){
+        if(maxHeap && parent.prio.compareTo(prioChild.prio)<0){
+            swap(pos, priorerChildPos);
+            sink(priorerChildPos);
+        }
+        else if(!maxHeap && parent.prio.compareTo(prioChild.prio)>0){
             swap(pos, priorerChildPos);
             sink(priorerChildPos);
         }
     }
+    
     private void reSize(){
         Object[] newArr = new Object[elements*2];
         for (int i = 1; i <= elements; i++) {
@@ -76,6 +92,7 @@ public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
         }
         arr=newArr;
     }
+    
     @Override
     public void push(E elem, P prio) {
         Pair newPair=new Pair(elem,prio);        
@@ -147,6 +164,7 @@ public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
             sink(i);
         }        
     }
+    
     @Override
     public P maxPrio() {
         return (P) ((Pair) arr[1]).prio;
