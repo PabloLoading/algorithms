@@ -1,12 +1,11 @@
 
 import tads.BST.*;
 import tads.DuoPrioQueue.*;
-import tads.List.LinkedList;
+import tads.List.*;
 import tads.PrioQueue.*;
 import tads.Table.*;
 import tads.Queue.*;
 import hashFunctions.*;
-import tads.List.*;
 
 
 public class Test {
@@ -132,7 +131,7 @@ public class Test {
         }
     */
     public static boolean HeapTest(){
-        PrioQueue<Integer> pq = new HeapPrioQueue<Integer>(2,false);
+        PrioQueue<Integer> pq = new HeapPrioQueue<Integer>(2,true);
 
         pq.push(2);
         pq.push(1);
@@ -159,7 +158,7 @@ public class Test {
 
 
         //TEST HEAPIFY
-        PrioQueue<Integer> pq2 = new HeapPrioQueue<Integer>(2,false);
+        PrioQueue<Integer> pq2 = new HeapPrioQueue<Integer>(2,true);
         Integer[] arrToHeap = {2,5,2,5,7,3,90,23,0,6,45};
         pq2.heapify(arrToHeap);
         
@@ -191,7 +190,7 @@ public class Test {
     }
 
     public static boolean DuoHeapTest(){
-        DuoPrioQueue<Integer,Integer> pq = new PairHeap<Integer,Integer>(2);
+        DuoPrioQueue<Integer,Integer> pq = new PairHeap<Integer,Integer>(2,true);
 
         pq.push(1, 2);
         pq.push(2, 1);
@@ -297,7 +296,7 @@ public class Test {
     }
     
     public static boolean LinkedListTest() {
-        LinkedList<Integer> l = new LinkedList<>();
+        List<Integer> l = new LinkedList<Integer>();
         l.add(2);
         l.add(3);
         l.remove(4);
