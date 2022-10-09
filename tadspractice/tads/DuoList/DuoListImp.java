@@ -2,14 +2,20 @@ package tads.DuoList;
 
 public class DuoListImp<K,T> implements DuoList<K,T>{
     class Node {
-
+        K key;
+        T data;
+        Node next;
     }
     private int elements;
     private Node head;
+    
     @Override
     public void addFirst(K key, T data) {
-        // TODO Auto-generated method stub
-        
+        Node n = new Node();
+        n.data = data;
+        n.key = key;
+        n.next = this.head;
+        elements++;
     }
 
     @Override
@@ -20,13 +26,11 @@ public class DuoListImp<K,T> implements DuoList<K,T>{
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        return 0;
+        return elements;
     }
 
     @Override
-    public boolean contains() {
-        // TODO Auto-generated method stub
+    public boolean contains(K key){
         return false;
     }
 
