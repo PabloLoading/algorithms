@@ -1,5 +1,6 @@
 import java.util.Scanner;
-import tads.ItemPrioQueue.*;
+
+import tadsObli.ItemPrioQueue.*;
 
 public class Ejercicio2 {
     public static void main(String[] args) {

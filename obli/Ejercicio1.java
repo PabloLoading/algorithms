@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 import javax.swing.SpinnerDateModel;
 
-import tads.Hash.*;
-import hashFunctions.*;
+import obliHashFunctions.*;
+import tadsObli.Hash.*;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
