@@ -5,8 +5,8 @@ public class Edge implements Comparable<Edge>{
   public int weight;
   public int vIn;
 
-  public Edge(int v, int weight){
-    vDest=v;
+  public Edge(int vDest, int weight){
+    this.vDest=vDest;
     this.weight=weight;
   }
 
@@ -20,17 +20,11 @@ public class Edge implements Comparable<Edge>{
     Edge other = (Edge) o;
     return this.vDest==other.vDest;
   }
-  public int getDest(){
-    return vDest;
-  }
-  public int getWeight(){
-    return weight;
-  }
-
   @Override
   public int compareTo(Edge e) {
     int c1=Integer.compare(e.vIn,this.vIn);
     if(c1==0) c1 = Integer.compare(e.vDest,this.vDest);
     return c1;
   }
+  
 }

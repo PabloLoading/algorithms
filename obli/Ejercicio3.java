@@ -11,7 +11,7 @@ public class Ejercicio3 {
         Scanner s = new Scanner(System.in);
         Graph g = loadData(s);
         int[] vDelete = loadDelete(s);
-        primWithPrinting(g, 1, vDelete);
+        primWithPrinting(g, 2, vDelete);
     }
 
     
@@ -43,7 +43,7 @@ public class Ejercicio3 {
     public static void printResults(int[] previous,int[] costs,int[] vDelete){
         int len=costs.length;
         ItemPrioQueue<Edge> q = new ItemHeap(len,false);
-        for (int i = 1; i < vDelete.length; i++) 
+        for (int i = 0; i < vDelete.length; i++) 
             previous[vDelete[i]]=-1;
         for (int i = 1; i < len; i++) {
             if(previous[i]==-1)continue;
