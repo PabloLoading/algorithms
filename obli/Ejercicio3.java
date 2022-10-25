@@ -27,8 +27,8 @@ public class Ejercicio3 {
             if(!visited[v] && !in(vDelete,v)){
                 visited[v]=true;
                 for(Edge e : g.edges(v)){
-                    int w =e.getDest();
-                    int wCost = e.getWeight();
+                    int w =e.vDest;
+                    int wCost = e.weight;
                     if(!visited[w] && wCost<costs[w]){
                         costs[w]=wCost;
                         previous[w]=v;
@@ -42,7 +42,7 @@ public class Ejercicio3 {
 
     public static void printResults(int[] previous,int[] costs,int[] vDelete){
         int len=costs.length;
-        ItemPrioQueue<Edge> q = new ItemHeap(len,false);
+        ItemPrioQueue<Edge> q = new ItemHeap<Edge>(len,false);
         for (int i = 0; i < vDelete.length; i++) 
             previous[vDelete[i]]=-1;
         for (int i = 1; i < len; i++) {

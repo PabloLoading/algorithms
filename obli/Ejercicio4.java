@@ -35,7 +35,6 @@ public class Ejercicio4 {
             if(!visited[i])
                 return false;   
         }
-        //System.out.println("G conex without "+v1+" & "+v2);
         return true;
     }
     public static int calculateStart(boolean[] visited){
