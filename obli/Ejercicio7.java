@@ -5,26 +5,21 @@ public class Ejercicio7 {
     Scanner in = new Scanner(System.in);
     int[] s1 = new int[in.nextInt()];
     int sum1 = 0;
-    int pos1 = -1;
     for (int i = 0; i < s1.length; i++) {
       s1[i] = in.nextInt();
-      pos1++;
       sum1= sum1 + s1[i];
     }
     int[] s2 = new int[in.nextInt()];
     int sum2 = 0;
-    int pos2 = -1;
     for (int i = 0; i < s2.length; i++) {
       s2[i] = in.nextInt();
-      pos2++;
       sum2= sum2 + s2[i];
     }
     int[] s3 = new int[in.nextInt()];
     int sum3 = 0;
-    int pos3 = -1;
+
     for (int i = 0; i < s3.length; i++) {
       s3[i] = in.nextInt();
-      pos3++;
       sum3= sum3 + s3[i];
     }
     int ret = maxSum(s1,s2,s3,sum1,sum2,sum3);
