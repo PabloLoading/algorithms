@@ -20,7 +20,6 @@ public class dijkstra {
         }
         s.close();
     }
-
     public static int dijsktra(Graph g,int vertix,int to){
         int vQuant=g.size();
         boolean[] visited= initBool(vQuant+1,false);

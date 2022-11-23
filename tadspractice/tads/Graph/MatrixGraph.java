@@ -2,6 +2,7 @@ package tads.Graph;
 import java.lang.Iterable;
 import java.util.Iterator;
 
+
 public class MatrixGraph implements Graph{
   int edges;
   int[][] mat;
@@ -10,7 +11,7 @@ public class MatrixGraph implements Graph{
   private boolean posValid(int pos1){
     return pos1>0 && pos1<mat.length;
   }
-  private boolean shorter(int v, int w,int weight){
+    private boolean shorter(int v, int w,int weight){
     return mat[v][w]<weight;
   }
 

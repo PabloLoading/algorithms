@@ -1,5 +1,7 @@
 package tads.DuoPrioQueue;
 
+import tadsObli.DuoPrioQueue.DuoPrioQueue;
+
 public class PairHeap<E,P extends Comparable<P>> implements DuoPrioQueue<E,P> {
     private Object[] arr;
     private int elements;

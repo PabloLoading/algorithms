@@ -1,9 +1,6 @@
 import java.util.Scanner;
 import tadsObli.Graph.*;
 
-
-// 500v case failing -- O(time) correctly 
-
 public class Ejercicio4 {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);

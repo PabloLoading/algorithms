@@ -1,5 +1,7 @@
 package hashFunctions;
 
+import obliHashFunctions.HashFun;
+
 public class String1 implements HashFun<String> {
 
     @Override

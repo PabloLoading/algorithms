@@ -1,5 +1,5 @@
 package tads.Table;
-import hashFunctions.HashFun;
+import obliHashFunctions.HashFun;
 
 public class CloseHash<K,T> implements Table<K,T> {
 

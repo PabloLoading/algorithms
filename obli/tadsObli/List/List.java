@@ -7,5 +7,6 @@ public interface List<T> extends Iterable<T> {
     public void add(T data);
     public void addFirst(T data);
     public void remove(T data);
+    public void removeFirst();
     public boolean contains(T data);
 }

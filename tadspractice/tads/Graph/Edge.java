@@ -1,5 +1,6 @@
 package tads.Graph;
 
+
 public class Edge {
   public int vDest;
   public int weight;

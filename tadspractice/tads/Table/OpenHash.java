@@ -1,6 +1,6 @@
 package tads.Table;
 
-import hashFunctions.HashFun;
+import obliHashFunctions.HashFun;
 
 public class OpenHash<K,T> implements Table<K,T> {
     HashFun<K> h;

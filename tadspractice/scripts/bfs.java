@@ -1,8 +1,12 @@
 package scripts;
 import java.util.Scanner;
-import tads.Graph.*;
+
 import tads.Queue.Queue;
 import tads.Queue.QueueImp;
+import tadsObli.Graph.Edge;
+import tadsObli.Graph.Graph;
+import tadsObli.Graph.MatrixGraph;
+import tadsObliObli.Graph.*;
 
 public class bfs {
   public static void main(String[] args) {

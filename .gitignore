@@ -1,2 +1,5 @@
 ejercicio-grafos-1
 paths
+*.txt
+.vscode
+*.class

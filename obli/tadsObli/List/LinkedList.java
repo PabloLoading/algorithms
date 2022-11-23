@@ -33,7 +33,6 @@ public class LinkedList<T> implements List<T> {
     public boolean isEmpty() {
         return elements==0;
     }
-
     @Override
     public void add(T data) {
         Node newNode= new Node(data);
@@ -132,5 +131,12 @@ public class LinkedList<T> implements List<T> {
             head = n;
         }
         elements++;
+    }
+
+    @Override
+    public void removeFirst() {
+        elements--;
+        head=head.next;
+        if(elements==0)tail=null;        
     }
 }

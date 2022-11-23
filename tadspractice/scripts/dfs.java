@@ -2,11 +2,11 @@ package scripts;
 
 import java.util.Scanner;
 
-import tads.Graph.Edge;
-import tads.Graph.Graph;
-import tads.Graph.MatrixGraph;
 import tads.Stack.Stack;
 import tads.Stack.StackImp;
+import tadsObliObli.Graph.Edge;
+import tadsObliObli.Graph.Graph;
+import tadsObliObli.Graph.MatrixGraph;
 
 public class dfs {
  public static void main(String[] args) { 

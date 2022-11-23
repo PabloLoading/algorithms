@@ -1,11 +1,17 @@
 
+import hashFunctions.HashFun;
+import hashFunctions.IntId;
+import hashFunctions.IntSquare;
+import hashFunctions.String2;
+import obliHashFunctions.*;
 import tads.BST.*;
-import tads.DuoPrioQueue.*;
 import tads.List.*;
 import tads.PrioQueue.*;
 import tads.Table.*;
+import tadsObli.DuoPrioQueue.DuoPrioQueue;
+import tadsObli.DuoPrioQueue.PairHeap;
+import tadsObliObli.DuoPrioQueue.*;
 import tads.Queue.*;
-import hashFunctions.*;
 
 
 public class Test {
@@ -218,22 +224,36 @@ public class Test {
 
     public static boolean OpenHashTest(){
             
-            HashFun<Integer> h = new IntSquare();
-            Table<Integer,Integer> m = new OpenHash<Integer,Integer>(4,h);
-            m.insert(1, 1);
+        HashFun<Integer> h = new IntSquare();
+        Table<Integer,Integer> m = new OpenHash<Integer,Integer>(4,h);
+        m.insert(1, 1);
+        m.insert(2, 4);
+        m.insert(3, 9);
+        m.insert(2, 8);
+        m.remove(3);
+        
+        boolean t1 = m.get(1) == 1;
+        boolean t2 = m.get(2) == 8;
+        boolean t3 = m.exists(3) == false;
+        boolean t4 = m.isEmpty() == false;
+        boolean t5 = m.size() == 2;
+        
+        // ----------------------
 
-            m.insert(2, 4);
-            m.insert(3, 9);
-            m.insert(2, 8);
-            m.remove(3);
-            
-            boolean t1 = m.get(1) == 1;
-            boolean t2 = m.get(2) == 8;
-            boolean t3 = m.exists(3) == false;
-            boolean t4 = m.isEmpty() == false;
-            boolean t5 = m.size() == 2;
-
-            return t1 && t2 && t3 && t4 && t5 ;
+        HashFun<String> h2 = new String2();
+        Table<String,Integer> m2 = new OpenHash<String,Integer>(4,h2);
+        m2.insert("English", 1);
+        m2.insert("Pashto", 4);
+        m2.insert("French", 9);
+        m2.insert("Pashto", 8);
+        m2.remove("French");
+        
+        boolean t6 = m2.get("English") == 1;
+        boolean t7 = m2.get("Pashto") == 8;
+        boolean t8 = m2.exists("French") == false;
+        boolean t9 = m2.isEmpty() == false;
+        boolean t10 = m2.size() == 2;
+        return t1 && t2 && t3 && t4 && t5 && t6 && t7 && t8 && t9 && t10;
      
     }
 

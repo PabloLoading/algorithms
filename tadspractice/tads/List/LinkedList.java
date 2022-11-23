@@ -88,11 +88,14 @@ public class LinkedList<T> implements List<T> {
             return root;
         }
     }
-
     @Override
     public Iterator<T> iterator() {
         return new LinkedListIterator(head);
     }
+
+
+
+    
     class LinkedListIterator implements Iterator<T>{
         Node curr;
 
