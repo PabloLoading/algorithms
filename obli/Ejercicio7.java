@@ -2,26 +2,17 @@ import java.util.Scanner;
 
 public class Ejercicio7 {
   public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
-    int[] s1 = new int[in.nextInt()];
-    int sum1 = 0;
-    for (int i = 0; i < s1.length; i++) {
-      s1[i] = in.nextInt();
-      sum1= sum1 + s1[i];
-    }
-    int[] s2 = new int[in.nextInt()];
-    int sum2 = 0;
-    for (int i = 0; i < s2.length; i++) {
-      s2[i] = in.nextInt();
-      sum2= sum2 + s2[i];
-    }
-    int[] s3 = new int[in.nextInt()];
-    int sum3 = 0;
+    Scanner s = new Scanner(System.in);
+    
+    int[] s1 = new int[s.nextInt()];
+    int sum1 = fillAndGetSum(s1,s);
 
-    for (int i = 0; i < s3.length; i++) {
-      s3[i] = in.nextInt();
-      sum3= sum3 + s3[i];
-    }
+    int[] s2 = new int[s.nextInt()];
+    int sum2 = fillAndGetSum(s2,s);
+
+    int[] s3 = new int[s.nextInt()];
+    int sum3 = fillAndGetSum(s3,s);
+
     int ret = maxSum(s1,s2,s3,sum1,sum2,sum3);
     System.out.println(ret);
   }
@@ -53,5 +44,14 @@ public class Ejercicio7 {
     if(a>=b && a>=c) return a;
     if(b>=a && b>=c) return b;
     return c;
+  }
+  
+  public static int fillAndGetSum(int[] arr,Scanner s){
+    int sum=0;
+    for (int i = 0; i < arr.length; i++){
+      arr[i]=Integer.parseInt(s.next());      
+      sum+=arr[i];
+    }
+    return sum;
   }
 }
